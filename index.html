@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoodMap GIS</title>
+  <link rel="stylesheet" href="foodmap.css?v=2">
+</head>
+<body>
+  <header>
+    <h1>FoodMap GIS</h1>
+    <span>
+      <a href="admin/" style="color:#fff;margin-right:14px;font-weight:bold">⚙️ Admin (Tambah Penyedia)</a>
+      <button id="btnLokasi">📍 Lokasi Saya</button>
+    </span>
+  </header>
+
+  <div id="filter">
+    <input type="text" id="cariNama" placeholder="Cari nama penyedia...">
+    <select id="filterKategori"><option value="">Semua kategori</option></select>
+    <input type="number" id="hargaMin" placeholder="Harga min" min="0" step="1000">
+    <input type="number" id="hargaMax" placeholder="Harga max" min="0" step="1000">
+    <button id="btnReset">Reset</button>
+  </div>
+
+  <main>
+    <aside>
+      <p id="infoLokasi" class="kecil"></p>
+      <ul id="daftar"></ul>
+    </aside>
+
+    <section>
+      <iframe id="peta" title="Peta lokasi" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div id="detail"><p class="kecil">Pilih penyedia makanan di daftar untuk melihat lokasi dan detailnya.</p></div>
+    </section>
+  </main>
+
+  <script src="app.js?v=2"></script>
+</body>
+</html>

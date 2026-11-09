@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap');
+
+:root {
+  --tinta:  #16302B;   /* hijau tua: header, tombol utama */
+  --kertas: #F5F7F4;   /* latar halaman */
+  --putih:  #FFFFFF;
+  --kunyit: #F0B429;   /* aksen: garis header, fokus */
+  --garis:  #D9E0DB;
+  --teks:   #1B2B27;
+  --redup:  #5E6C67;
+  --restoran: #B8352B;
+  --kafe:     #2F6690;
+  --warung:   #9A6A12;
+}
+* { box-sizing: border-box; }
+body { margin: 0; height: 100vh; display: flex; flex-direction: column; background: var(--kertas); color: var(--teks);
+       font-family: 'Figtree', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 15px; line-height: 1.5; }
+
+/* Header */
+header { background: var(--tinta); color: #fff; padding: 12px 22px; display: flex; justify-content: space-between; align-items: center;
+         border-bottom: 4px solid var(--kunyit); gap: 12px; }
+header h1 { margin: 0; font-family: 'Bricolage Grotesque', 'Figtree', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+header > span { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+header a { color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.35); border-radius: 8px; margin: 0 !important; }
+header a:hover { background: rgba(255,255,255,.12); }
+header button { padding: 9px 14px; border: 0; border-radius: 8px; background: var(--kunyit); color: var(--tinta); font: inherit; font-weight: 600; cursor: pointer; }
+header button:hover { background: #f7c548; }
+
+/* Filter */
+#filter { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 22px; background: var(--putih); border-bottom: 1px solid var(--garis); }
+#filter input, #filter select, #filter button { padding: 9px 11px; border: 1px solid var(--garis); border-radius: 8px; font: inherit; background: var(--putih); color: var(--teks); }
+#filter input[type=text] { flex: 1; min-width: 180px; }
+#filter input[type=number] { width: 120px; }
+#filter button { cursor: pointer; font-weight: 600; }
+#filter button:hover { background: var(--kertas); }
+
+/* Tata letak utama */
+main { flex: 1; display: flex; min-height: 0; }
+aside { width: 340px; overflow-y: auto; background: var(--putih); border-right: 1px solid var(--garis); }
+section { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
+#peta { width: 100%; height: 52%; min-height: 280px; border: 0; background: #e6ebe8; flex-shrink: 0; }
+
+/* Daftar penyedia: garis kiri menandai kategori */
+#infoLokasi { margin: 0; padding: 10px 16px; background: #FFF6DB; border-bottom: 1px solid var(--garis); }
+#infoLokasi:empty { display: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+#daftar li { padding: 12px 16px; border-bottom: 1px solid var(--garis); border-left: 5px solid var(--garis); cursor: pointer; }
+#daftar li strong { font-weight: 600; display: block; }
+#daftar li small { color: var(--redup); font-size: 13px; }
+#daftar li:hover { background: var(--kertas); }
+#daftar li.aktif { background: #FFF6DB; }
+#daftar li.kat-restoran { border-left-color: var(--restoran); }
+#daftar li.kat-kafe     { border-left-color: var(--kafe); }
+#daftar li.kat-warung   { border-left-color: var(--warung); }
+.kecil { color: var(--redup); font-size: 14px; }
+
+/* Panel detail */
+#detail { padding: 22px 26px 36px; }
+.detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 36px; max-width: 980px; }
+#detail h2 { font-family: 'Bricolage Grotesque', 'Figtree', sans-serif; font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; margin: 8px 0 6px; }
+#detail h3 { font-family: 'Bricolage Grotesque', 'Figtree', sans-serif; font-size: 19px; margin: 0 0 10px; }
+#detail p { margin: 6px 0; }
+.chip { display: inline-block; padding: 2px 11px; border-radius: 999px; color: #fff; font-size: 13px; font-weight: 600; background: var(--redup); }
+.chip.kat-restoran { background: var(--restoran); }
+.chip.kat-kafe     { background: var(--kafe); }
+.chip.kat-warung   { background: var(--warung); }
+.foto { width: 100%; max-height: 190px; object-fit: cover; border-radius: 10px; display: block; margin-bottom: 12px; }
+.rute { display: inline-block; background: var(--tinta); color: #fff; padding: 11px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 12px 0 4px; }
+.rute:hover { background: #0d221e; }
+
+/* Menu bergaya daftar menu: nama ..... harga */
+.menu li { display: flex; align-items: baseline; padding: 6px 0; }
+.menu .titik { flex: 1; border-bottom: 2px dotted #aeb9b3; margin: 0 8px; transform: translateY(-4px); }
+.menu .harga { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+:focus-visible { outline: 3px solid var(--kunyit); outline-offset: 2px; }
+
+@media (max-width: 760px) {
+  main { flex-direction: column; }
+  aside { width: 100%; max-height: 36%; border-right: 0; border-bottom: 1px solid var(--garis); }
+  .detail-grid { grid-template-columns: 1fr; }
+  header h1 { font-size: 22px; }
+}
